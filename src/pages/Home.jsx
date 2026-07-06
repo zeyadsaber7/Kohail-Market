@@ -49,6 +49,47 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-11 md:gap-14">
+
+      {/* ================= HERO ================= */}
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-l from-brand to-emerald-500 p-8 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="relative z-10 text-center md:text-right">
+          <span className="inline-block bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
+            🔥 عروض الأسبوع
+          </span>
+
+          <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight">
+            كل احتياجات بيتك
+            <br />
+            بأسعار لا تقبل المنافسة
+          </h1>
+
+          <p className="text-white/90 mt-4 text-sm md:text-lg max-w-xl">
+            اكتشف آلاف المنتجات الطازجة والمنظفات والمشروبات وكل مستلزمات البيت
+            مع توصيل سريع ودفع عند الاستلام.
+          </p>
+
+          <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-6">
+            <Link
+              to="/offers"
+              className="bg-white text-brand font-bold px-6 py-3 rounded-xl hover:scale-105 transition"
+            >
+              تسوق الآن
+            </Link>
+
+            <Link
+              to="/best-sellers"
+              className="border border-white text-white font-bold px-6 py-3 rounded-xl hover:bg-white hover:text-brand transition"
+            >
+              الأكثر مبيعًا
+            </Link>
+          </div>
+        </div>
+
+        <div className="hidden md:flex items-center justify-center">
+          <Package size={170} className="text-white/15" />
+        </div>
+      </section>
+
       <section>
         <SectionHeader
           icon={<Package size={18} />}
