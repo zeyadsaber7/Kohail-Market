@@ -8,7 +8,6 @@ export function validateCheckoutForm(form) {
   const errors = {};
   if (!form.name.trim()) errors.name = "الاسم مطلوب";
   if (!isValidEgyptianPhone(form.phone)) errors.phone = "رقم هاتف مصري غير صحيح";
-<<<<<<< HEAD
   // Support both the legacy single `address` field and the new split fields
   const addressFromParts = [form.region, form.street, form.buildingOrBlock, form.landmark]
     .filter((v) => v !== undefined && v !== null)
@@ -17,8 +16,5 @@ export function validateCheckoutForm(form) {
     .join(", ");
   const effectiveAddress = (form.address || "").trim() || addressFromParts;
   if (!effectiveAddress) errors.address = "العنوان مطلوب";
-=======
-  if (!form.address.trim()) errors.address = "العنوان مطلوب";
->>>>>>> fd87fe64f9c4879212f53955694a3138a18ad237
   return errors;
 }

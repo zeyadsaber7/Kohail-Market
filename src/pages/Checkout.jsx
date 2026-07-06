@@ -14,11 +14,7 @@ export default function Checkout() {
   const navigate = useNavigate();
   const { items, subtotal, deliveryFee, total, clearCart } = useCartContext();
 
-<<<<<<< HEAD
   const [form, setForm] = useState({ name: "", phone: "", address: "", region: "", street: "", buildingOrBlock: "", landmark: "", notes: "" });
-=======
-  const [form, setForm] = useState({ name: "", phone: "", address: "", notes: "" });
->>>>>>> fd87fe64f9c4879212f53955694a3138a18ad237
   const [errors, setErrors] = useState({});
   const [placed, setPlaced] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -35,15 +31,13 @@ export default function Checkout() {
     try {
       // Persists one `orders` row + one `order_items` row per cart line
       // in Supabase (see the `place_order` DB function in schema.sql).
-<<<<<<< HEAD
       // Ensure we send a single `address` string to the backend for compatibility
-      const parts = [form.region, form.street, form.buildingOrBlock, form.landmark].filter(Boolean).map((s) => s.trim());
+      const parts = [form.region, form.street, form.buildingOrBlock, form.landmark]
+        .filter(Boolean)
+        .map((s) => s.trim());
       const fullAddress = (form.address && form.address.trim()) || (parts.length ? parts.join(", ") : "");
       const customerPayload = { ...form, address: fullAddress };
       await placeOrder({ customer: customerPayload, items, totals: { subtotal, deliveryFee, total } });
-=======
-      await placeOrder({ customer: form, items, totals: { subtotal, deliveryFee, total } });
->>>>>>> fd87fe64f9c4879212f53955694a3138a18ad237
       setPlaced(true);
       clearCart();
     } catch (err) {
@@ -105,14 +99,10 @@ export default function Checkout() {
 
           {field("name", "الاسم بالكامل", "مثال: أحمد محمد", <User size={14} />)}
           {field("phone", "رقم الهاتف", "01xxxxxxxxx", <PhoneIcon size={14} />, "tel")}
-<<<<<<< HEAD
           {field("region", "المنطقة", "المحافظة / المنطقة", <MapPin size={14} />)}
           {field("street", "الشارع", "اسم الشارع أو الطريق", <MapPin size={14} />)}
           {field("buildingOrBlock", "رقم العمارة أو رقم البلوك", "مثال: عمارة 5 أو بلوك A", <MapPin size={14} />)}
           {field("landmark", "أقرب علامة مميزة", "مثال: أمام مسجد النور", <MapPin size={14} />)}
-=======
-          {field("address", "العنوان بالتفصيل", "المحافظة، المدينة، الشارع، رقم العقار", <MapPin size={14} />)}
->>>>>>> fd87fe64f9c4879212f53955694a3138a18ad237
 
           <div className="flex flex-col gap-1.5">
             <label className="text-sm font-bold text-brand flex items-center gap-1.5" htmlFor="notes"><FileText size={14} /> ملاحظات (اختياري)</label>
