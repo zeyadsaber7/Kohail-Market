@@ -1,0 +1,8 @@
+# kohail-market robots.txt
+User-agent: *
+Allow: /
+Disallow: /checkout
+Disallow: /cart
+Disallow: /admin
+
+Sitemap: https://www.kohailmarket.com/sitemap.xml
