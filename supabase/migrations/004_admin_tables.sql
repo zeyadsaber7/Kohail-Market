@@ -92,7 +92,7 @@ create table if not exists public.website_settings (
   instagram_url             text,
   google_maps_url           text,
   delivery_fee              numeric(10,2) not null default 25,
-  free_delivery_threshold   numeric(10,2) not null default 300,
+  free_delivery_threshold   numeric(10,2) not null default 1000,
   logo_path                 text,          -- path inside the "website" storage bucket
   updated_at                timestamptz not null default now(),
 
