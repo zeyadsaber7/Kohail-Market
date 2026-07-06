@@ -3,7 +3,6 @@ import { Outlet, useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import MobileMenu from "./MobileMenu";
-import FloatingButtons from "./FloatingButtons";
 import Toast from "../ui/Toast";
 import { useCartContext } from "../../context/CartContext";
 
@@ -33,7 +32,6 @@ export default function Layout() {
       </main>
 
       <Footer />
-      <FloatingButtons />
       <Toast message={toast} />
     </div>
   );
