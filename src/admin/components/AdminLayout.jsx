@@ -4,10 +4,7 @@ import {
   LayoutDashboard,
   Package,
   FolderTree,
-  Image as ImageIcon,
   ShoppingCart,
-  MessageSquare,
-  Settings as SettingsIcon,
   LogOut,
   Menu,
   X,
@@ -19,10 +16,7 @@ const NAV_ITEMS = [
   { to: "/admin", label: "الرئيسية", icon: LayoutDashboard, end: true },
   { to: "/admin/products", label: "المنتجات", icon: Package },
   { to: "/admin/categories", label: "الأقسام", icon: FolderTree },
-  { to: "/admin/banners", label: "بانرات الصفحة الرئيسية", icon: ImageIcon },
   { to: "/admin/orders", label: "الطلبات", icon: ShoppingCart },
-  { to: "/admin/messages", label: "الرسائل", icon: MessageSquare },
-  { to: "/admin/settings", label: "الإعدادات", icon: SettingsIcon },
 ];
 
 export default function AdminLayout() {
@@ -37,12 +31,10 @@ export default function AdminLayout() {
 
   return (
     <div className="min-h-screen bg-slate-50 flex" dir="rtl">
-      {/* Sidebar (desktop) */}
       <aside className="hidden lg:flex w-64 shrink-0 flex-col bg-brand text-white min-h-screen sticky top-0">
         <SidebarContent admin={admin} onSignOut={handleSignOut} />
       </aside>
 
-      {/* Sidebar (mobile drawer) */}
       {mobileOpen && (
         <div className="lg:hidden fixed inset-0 z-50 flex">
           <div className="w-72 bg-brand text-white flex flex-col">
@@ -58,7 +50,6 @@ export default function AdminLayout() {
       )}
 
       <div className="flex-1 min-w-0">
-        {/* Topbar */}
         <header className="lg:hidden sticky top-0 z-30 bg-white border-b border-slate-100 px-4 h-14 flex items-center justify-between shadow-sm">
           <button onClick={() => setMobileOpen(true)} className="text-brand">
             <Menu size={22} />
@@ -111,7 +102,11 @@ function SidebarContent({ admin, onSignOut, onNavigate }) {
         >
           <ExternalLink size={18} /> عرض المتجر
         </a>
-        <div className="px-3.5 py-2 text-[11px] text-white/50 truncate">{admin?.full_name || "مسؤول"}</div>
+
+        <div className="px-3.5 py-2 text-[11px] text-white/50 truncate">
+          {admin?.full_name || "مسؤول"}
+        </div>
+
         <button
           onClick={onSignOut}
           className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-white/80 hover:bg-red-500/20 hover:text-white transition-colors"

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import {
   Package,
   ShoppingCart,
-  MessageSquare,
   FolderTree,
   AlertCircle,
 } from "lucide-react";
@@ -18,7 +17,7 @@ export default function Dashboard() {
 
     async function load() {
       try {
-        const [products, categories, pendingOrders, unreadMessages] =
+        const [products, categories, pendingOrders] =
           await Promise.all([
             supabase
               .from("products")
@@ -30,10 +29,6 @@ export default function Dashboard() {
               .from("orders")
               .select("id", { count: "exact", head: true })
               .eq("status", "pending"),
-            supabase
-              .from("contact_messages")
-              .select("id", { count: "exact", head: true })
-              .eq("is_read", false),
           ]);
 
         if (cancelled) return;
@@ -42,7 +37,6 @@ export default function Dashboard() {
           products: products.count ?? 0,
           categories: categories.count ?? 0,
           pendingOrders: pendingOrders.count ?? 0,
-          unreadMessages: unreadMessages.count ?? 0,
         });
       } catch (err) {
         console.error("[Dashboard] failed to load stats:", err);
@@ -79,13 +73,6 @@ export default function Dashboard() {
       to: "/admin/orders",
       color: "bg-amber-50 text-amber-600",
     },
-    {
-      label: "رسائل غير مقروءة",
-      value: stats?.unreadMessages ?? 0,
-      icon: MessageSquare,
-      to: "/admin/messages",
-      color: "bg-rose-50 text-rose-600",
-    },
   ];
 
   return (
@@ -93,6 +80,7 @@ export default function Dashboard() {
       <h1 className="text-xl font-extrabold text-brand mb-1">
         مرحبًا بك 👋
       </h1>
+
       <p className="text-sm text-slate-400 mb-6">
         نظرة سريعة على حالة المتجر
       </p>
@@ -104,7 +92,7 @@ export default function Dashboard() {
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         {cards.map((card) => {
           const Icon = card.icon;
 
