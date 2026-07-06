@@ -112,7 +112,7 @@ export default function Home() {
       {/* ================= QUICK STATS ================= */}
       <section className="grid grid-cols-3 gap-3">
         {[
-          { icon: <Truck size={18} />, t: "توصيل سريع", s: "خلال ساعات" },
+          { icon: <Truck size={18} />, t: "توصيل سريع", s: "خلال اقل من ساعة" },
           { icon: <ShieldCheck size={18} />, t: "جودة مضمونة", s: "منتجات أصلية" },
           { icon: <Clock size={18} />, t: "خدمة متواصلة", s: "طوال الأسبوع" },
         ].map((x, i) => (
