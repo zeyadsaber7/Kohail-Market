@@ -25,7 +25,7 @@ export const CONTACT = {
 
 export const DELIVERY = {
   fee: 25, // EGP flat delivery fee
-  freeDeliveryThreshold: 300, // orders above this amount ship free
+  freeDeliveryThreshold: 1000, // orders above this amount ship free
   paymentMethod: "cash_on_delivery", // only supported method for now
 };
 

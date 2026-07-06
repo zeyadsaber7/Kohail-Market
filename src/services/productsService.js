@@ -15,7 +15,10 @@ function mapProduct(row) {
     id: row.id,
     name: row.name,
     categoryId: row.category_id,
+<<<<<<< HEAD
     imagePath: row.image_path,
+=======
+>>>>>>> fd87fe64f9c4879212f53955694a3138a18ad237
     image: row.image_path ? getPublicImageUrl(row.image_path) : null,
     price: Number(row.price),
     oldPrice: row.old_price ? Number(row.old_price) : null,

@@ -4,7 +4,13 @@ import {
   LayoutDashboard,
   Package,
   FolderTree,
+<<<<<<< HEAD
   ShoppingCart,
+=======
+  Image as ImageIcon,
+  ShoppingCart,
+  MessageSquare,
+>>>>>>> fd87fe64f9c4879212f53955694a3138a18ad237
   Settings as SettingsIcon,
   LogOut,
   Menu,
@@ -17,7 +23,13 @@ const NAV_ITEMS = [
   { to: "/admin", label: "الرئيسية", icon: LayoutDashboard, end: true },
   { to: "/admin/products", label: "المنتجات", icon: Package },
   { to: "/admin/categories", label: "الأقسام", icon: FolderTree },
+<<<<<<< HEAD
   { to: "/admin/orders", label: "الطلبات", icon: ShoppingCart },
+=======
+  { to: "/admin/banners", label: "بانرات الصفحة الرئيسية", icon: ImageIcon },
+  { to: "/admin/orders", label: "الطلبات", icon: ShoppingCart },
+  { to: "/admin/messages", label: "الرسائل", icon: MessageSquare },
+>>>>>>> fd87fe64f9c4879212f53955694a3138a18ad237
   { to: "/admin/settings", label: "الإعدادات", icon: SettingsIcon },
 ];
 

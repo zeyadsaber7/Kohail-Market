@@ -1,6 +1,10 @@
 import { useState, useMemo, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import { Search, ShoppingCart, Menu, ArrowLeft } from "lucide-react";
+=======
+import { Search, ShoppingCart, Menu, Phone, ArrowLeft } from "lucide-react";
+>>>>>>> fd87fe64f9c4879212f53955694a3138a18ad237
 import { SITE } from "../../constants/site";
 import { CATEGORIES } from "../../data/categories";
 import { searchProducts } from "../../data/products";
@@ -86,6 +90,12 @@ export default function Header({ cartCount, onOpenMenu }) {
           <button className="md:hidden p-2 text-brand hover:bg-slate-50 rounded-lg transition-colors" onClick={() => setSearchOpen((s) => !s)} aria-label="بحث">
             <Search size={22} />
           </button>
+<<<<<<< HEAD
+=======
+          <Link to="/contact" className="hidden lg:flex items-center gap-1.5 text-sm font-semibold text-slate-600 hover:text-brand transition-colors">
+            <Phone size={16} /> تواصل معنا
+          </Link>
+>>>>>>> fd87fe64f9c4879212f53955694a3138a18ad237
           <Link to="/cart" className="relative p-2.5 bg-brand rounded-xl text-white hover:bg-brand-light active:scale-95 transition-all">
             <ShoppingCart size={20} />
             {cartCount > 0 && (

@@ -6,7 +6,13 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Products from "./pages/Products";
 import Categories from "./pages/Categories";
+<<<<<<< HEAD
 import Orders from "./pages/Orders";
+=======
+import Banners from "./pages/Banners";
+import Orders from "./pages/Orders";
+import Messages from "./pages/Messages";
+>>>>>>> fd87fe64f9c4879212f53955694a3138a18ad237
 import Settings from "./pages/Settings";
 
 /**
@@ -33,7 +39,13 @@ export default function AdminApp() {
           <Route index element={<Dashboard />} />
           <Route path="products" element={<Products />} />
           <Route path="categories" element={<Categories />} />
+<<<<<<< HEAD
           <Route path="orders" element={<Orders />} />
+=======
+          <Route path="banners" element={<Banners />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="messages" element={<Messages />} />
+>>>>>>> fd87fe64f9c4879212f53955694a3138a18ad237
           <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>

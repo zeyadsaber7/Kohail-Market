@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import { Package, ShoppingCart, FolderTree, AlertCircle } from "lucide-react";
+=======
+import { Package, ShoppingCart, MessageSquare, FolderTree, AlertCircle } from "lucide-react";
+>>>>>>> fd87fe64f9c4879212f53955694a3138a18ad237
 import { supabase } from "../../lib/supabaseClient";
 
 export default function Dashboard() {
@@ -11,16 +15,28 @@ export default function Dashboard() {
     let cancelled = false;
     async function load() {
       try {
+<<<<<<< HEAD
         const [products, categories, pendingOrders] = await Promise.all([
           supabase.from("products").select("id", { count: "exact", head: true }),
           supabase.from("categories").select("id", { count: "exact", head: true }),
           supabase.from("orders").select("id", { count: "exact", head: true }).eq("status", "pending"),
+=======
+        const [products, categories, pendingOrders, unreadMessages] = await Promise.all([
+          supabase.from("products").select("id", { count: "exact", head: true }),
+          supabase.from("categories").select("id", { count: "exact", head: true }),
+          supabase.from("orders").select("id", { count: "exact", head: true }).eq("status", "pending"),
+          supabase.from("contact_messages").select("id", { count: "exact", head: true }).eq("is_read", false),
+>>>>>>> fd87fe64f9c4879212f53955694a3138a18ad237
         ]);
         if (cancelled) return;
         setStats({
           products: products.count ?? 0,
           categories: categories.count ?? 0,
           pendingOrders: pendingOrders.count ?? 0,
+<<<<<<< HEAD
+=======
+          unreadMessages: unreadMessages.count ?? 0,
+>>>>>>> fd87fe64f9c4879212f53955694a3138a18ad237
         });
       } catch (err) {
         console.error("[Dashboard] failed to load stats:", err);
@@ -37,6 +53,10 @@ export default function Dashboard() {
     { label: "المنتجات", value: stats?.products, icon: Package, to: "/admin/products", color: "bg-blue-50 text-blue-600" },
     { label: "الأقسام", value: stats?.categories, icon: FolderTree, to: "/admin/categories", color: "bg-emerald-50 text-emerald-600" },
     { label: "طلبات قيد الانتظار", value: stats?.pendingOrders, icon: ShoppingCart, to: "/admin/orders", color: "bg-amber-50 text-amber-600" },
+<<<<<<< HEAD
+=======
+    { label: "رسائل غير مقروءة", value: stats?.unreadMessages, icon: MessageSquare, to: "/admin/messages", color: "bg-rose-50 text-rose-600" },
+>>>>>>> fd87fe64f9c4879212f53955694a3138a18ad237
   ];
 
   return (

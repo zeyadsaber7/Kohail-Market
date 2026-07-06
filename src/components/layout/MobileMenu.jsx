@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import { X, Home as HomeIcon, ChevronLeft } from "lucide-react";
+=======
+import { X, Home as HomeIcon, ChevronLeft, Phone } from "lucide-react";
+>>>>>>> fd87fe64f9c4879212f53955694a3138a18ad237
 import { SITE } from "../../constants/site";
 import { CATEGORIES } from "../../data/categories";
 
@@ -33,6 +37,12 @@ export default function MobileMenu({ open, onClose }) {
           ))}
         </div>
 
+<<<<<<< HEAD
+=======
+        <Link to="/contact" onClick={onClose} className="w-full flex items-center gap-2 p-3 mt-2 rounded-xl hover:bg-slate-50 text-sm font-bold text-brand">
+          <Phone size={16} /> تواصل معنا
+        </Link>
+>>>>>>> fd87fe64f9c4879212f53955694a3138a18ad237
       </div>
     </div>
   );
